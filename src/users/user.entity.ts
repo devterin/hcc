@@ -7,10 +7,10 @@ export class User {
     id: number;
 
     @Column()
-    fullname: string;
+    full_name: string;
 
     @Column()
-    phoneNumber: number;
+    phone_number: string;
 
     @Column()
     email: string;
@@ -19,5 +19,5 @@ export class User {
     created_at: Date;
 
     @OneToMany(() => CounterNum, (cn) => cn.user)
-    counterNums: CounterNum[];
+    counter_nums: CounterNum[];
 }

@@ -24,7 +24,7 @@ export class CounterNum {
     @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     created_at: Date;
 
-    @ManyToOne(() => User, (u) => u.counterNums)
+    @ManyToOne(() => User, (u) => u.counter_nums)
     @JoinColumn({ name: 'user_id' })
     user: User;
 
