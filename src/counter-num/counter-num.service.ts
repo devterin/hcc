@@ -54,18 +54,18 @@ export class CounterNumService {
     }
 
     async updateStatus(id: number, status: CounterStatus): Promise<CounterNum> {
-        const cn = await this.counterNumRepo.findOne({ where: { id } });
-        if (!cn) throw new NotFoundException(`CounterNum with id ${id} not found`);
-        cn.status = status;
-        return this.counterNumRepo.save(cn);
+        const counterNum = await this.counterNumRepo.findOne({ where: { id } });
+        if (!counterNum) throw new NotFoundException(`CounterNum with id ${id} not found`);
+        counterNum.status = status;
+        return this.counterNumRepo.save(counterNum);
     }
 
-    async findByCounterNumId(id: number) {
-        const cn = await this.counterNumRepo.findOne({
+    async findByCounterNumId(id: number): Promise<CounterNum> {
+        const counterNum = await this.counterNumRepo.findOne({
             where: { id },
             relations: ['user', 'counter_id']
         });
-        if (!cn) throw new NotFoundException(`CounterNum with id ${id} not found`);
-        return cn;
+        if (!counterNum) throw new NotFoundException(`CounterNum with id ${id} not found`);
+        return counterNum;
     }
 }

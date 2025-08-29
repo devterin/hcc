@@ -21,7 +21,7 @@ export class CounterService {
         });
     }
 
-    async create(dto: CreateCounterDto) {
+    async create(dto: CreateCounterDto): Promise<Counter> {
         const existed = await this.counterRepo.findOne({ where: { name: dto.name } });
         if (existed) {
             throw new BadRequestException(`Counter with name ${dto.name} already exists`);
