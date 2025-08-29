@@ -4,7 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { CounterNumModule } from './counter-num/counter-num.module';
 import { CounterModule } from './counter/counter.module';
 import { UsersModule } from './users/users.module';
-import { ServiceModule } from './service/service.module';
+import { ServiceModule } from './counter-service/counter-service.module';
 
 @Module({
   imports: [

@@ -2,7 +2,7 @@ import { Counter } from "src/counter/counter.entity";
 import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('service')
-export class Service {
+export class CounterServices {
     @PrimaryGeneratedColumn()
     id: number;
 

@@ -2,6 +2,12 @@ import { Counter } from "src/counter/counter.entity";
 import { User } from "src/users/user.entity";
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
+export enum CounterStatus {
+    Waiting = 'Waiting',
+    Serving = 'Serving',
+    Completed = 'Completed',
+}
+
 @Entity('counter_num')
 export class CounterNum {
     @PrimaryGeneratedColumn()
@@ -12,14 +18,10 @@ export class CounterNum {
 
     @Column({
         type: 'enum',
-        enum: [
-            'Waiting',
-            'Serving',
-            'Completed'
-        ],
-        default: 'Waiting',
+        enum: CounterStatus,
+        default: CounterStatus.Waiting,
     })
-    status: string;
+    status: CounterStatus;
 
     @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     created_at: Date;
