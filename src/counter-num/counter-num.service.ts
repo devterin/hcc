@@ -41,6 +41,7 @@ export class CounterNumService {
     findAll() {
         return this.counterNumRepo.find({
             select: ['num', 'status'],
+            relations: ['counter_id']
         });
     }
 

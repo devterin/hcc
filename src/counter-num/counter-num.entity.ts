@@ -1,6 +1,6 @@
 import { Counter } from "src/counter/counter.entity";
 import { User } from "src/users/user.entity";
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, RelationId } from "typeorm";
 
 export enum CounterStatus {
     Waiting = 'Waiting',
